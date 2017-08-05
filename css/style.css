@@ -591,15 +591,15 @@ contact section
 
 
 section.module.parallax-1 {
-  background-image: url("~/images/home.jpg");
+  background-image: url("images/home.jpg");
   background-size: cover;
 }
 section.module.parallax-2 {
-  background-image: url("/images/people1.jpg");
+  background-image: url("images/people1.jpg");
   background-size: cover;
 }
 section.module.parallax-3 {
-  background-image: url("/images/projects3.jpg");
+  background-image: url("images/projects3.jpg");
   background-size: 100% 100%;
 }
 
