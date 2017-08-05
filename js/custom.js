@@ -137,11 +137,11 @@ $(function(){
   $(function(){
     jQuery(document).ready(function() {
     $('#places').backstretch([
-       "/images/portfolio-img1.jpg", 
-       "/images/portfolio-img2.jpg",
-       "/images/portfolio-img3.jpg",
-       "/images/portfolio-img4.jpg",
-       "/images/portfolio-img5.jpg"
+       "../images/portfolio-img1.jpg", 
+       "../images/portfolio-img2.jpg",
+       "../images/portfolio-img3.jpg",
+       "../images/portfolio-img4.jpg",
+       "../images/portfolio-img5.jpg"
         ],  {duration: 2000, fade: 1000});
     });
   })
