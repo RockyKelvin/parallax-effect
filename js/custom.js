@@ -134,6 +134,7 @@ $(function(){
 
 
   // BACKGROUND SLIDESHOW
+  /*
   $(function(){
     jQuery(document).ready(function() {
     $('#places').backstretch([
@@ -145,6 +146,6 @@ $(function(){
         ],  {duration: 2000, fade: 1000});
     });
   })
-
+*/
 });
 
