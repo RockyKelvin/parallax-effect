@@ -358,12 +358,35 @@ people section
   text-align: center;
 }
 
+#imgHolder {
+  overflow: hidden;
+  height:40vh;
+  margin:0 auto;
+  position:relative;
+}
+ 
 #people .bold{
   color: #ffffff;
 }
-
-#people img:hover {
-  opacity: 0.5;
+#imgHolder img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#imgHolder:hover {
+  border: 3px solid #e0e0e0;
+  transition: all .4s ease; 
+  -webkit-transition: all.4s ease;  
+  -moz-transition: all .4s ease; 
+  -o-transition: all .4s ease; 
+  -ms-transition: all .4s ease;  
+}
+#imgHolder img.active {
+  opacity: 1;
 }
 
 .nav-tabs {
@@ -435,6 +458,11 @@ places section
   height:100vh;
   width: 100vw;
   text-align: center;
+  background: url(../images/portfolio-img5.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @media only screen and (min-width:1025px){
@@ -543,15 +571,34 @@ projects section
   height:110vh;
   width: 100vw;
   }
-
-#projects img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.4s ease-in-out;
+#randomImage {
+  height:40vh;
+  overflow: hidden;
+  margin:0 auto;
+  position:relative;
 }
-#projects img:hover {
-  opacity: 0.5;
+
+#randomImage img {
+  border-radius: 10px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#randomImage img.active {
+  opacity: 1;
+}
+#randomImage:hover {
+  border-radius: 10px;
+  border: 3px solid #e0e0e0;
+  transition: all .4s ease; 
+  -webkit-transition: all.4s ease;  
+  -moz-transition: all .4s ease; 
+  -o-transition: all .4s ease; 
+  -ms-transition: all .4s ease;  
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -591,16 +638,25 @@ contact section
 
 
 section.module.parallax-1 {
-  background-image: url("../images/home.jpg");
+  background: url("../images/home.jpg") center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 section.module.parallax-2 {
-  background-image: url("../images/people1.jpg");
+  background: url("../images/people1.jpg") center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 section.module.parallax-3 {
-  background-image: url("../images/projects3.jpg");
-  background-size: 100% 100%;
+  background: url("../images/projects3.jpg") center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
 }
 
 
@@ -652,4 +708,6 @@ footer p {
 .social-icon li a:hover {
   color: #00c6d7;
 }
+
+
 
