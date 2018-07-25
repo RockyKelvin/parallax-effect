@@ -32,45 +32,79 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <!-- [endif -->
 
-  <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/jquery.backstretch.min.js"></script>
   <script type="text/JavaScript">
 
-    var picCount=0; // global
-    var randNumber=0; // global
-    var imgCount=0;
+  	function randomImage() {
+	  var randomImage=document.getElementById("randomImage"),
+	  imgs=randomImage.getElementsByTagName("img"), //得到图片们
+	  current=0; //current为当前活跃的图片编号
 
-    var picArray= ["images/home-bg-slideshow1.jpg","images/home-bg-slideshow2.jpg","images/about-img.jpg"];
+	  function slideOff() {
+	    imgs[current].className=""; //图片淡出
+	  }
+	  function slideOn() {
+	    imgs[current].className="active"; //图片淡入
+	  }
 
-    var imgarray = new Array("images/portfolio-img1.jpg", "images/portfolio-img2.jpg", "images/portfolio-img3.jpg", "images/portfolio-img4.jpg", "images/portfolio-img5.jpg", "images/portfolio-img6.jpg", "images/portfolio-img7.jpg"); 
+	  function changeSlide() { //切换图片的函数
+	    slideOff(); //图片淡出
+	    current++; //自增1
+	    if(current>=3) current=0;
+	    slideOn(); //图片淡入
+	  }
+	  
+	  //每2s调用changeSlide函数进行图片轮播
+	  var slideon=setInterval(changeSlide,2000);  
 
-    // gets next picture in array
-    function nextPic()
-    { // check if adding 1 exceeds number of pics in array
-      picCount=(picCount+1<picArray.length)? picCount+1 : 0;
+	  randomImage.onmouseover=function () {
+ 		 clearInterval(slideon); //当鼠标移入时清除轮播事件
+		}
+	  randomImage.onmouseout=function () {
+  		slideon=setInterval(changeSlide,2000); //当鼠标移出时重新开始轮播事件
+		}
+	}
 
-      imgCount = imgarray.length;
-      randNumber=Math.floor((Math.random() * imgCount) + 1);
-    // build the img to write to page using the new pic reference
-      var build='<img border="0" src="'+picArray[picCount]+'" class="img-responsive">';
-      document.getElementById("imgHolder").innerHTML=build;
+	function imgHolder() {
+	  var imgHolder=document.getElementById("imgHolder"),
+	  imgs=imgHolder.getElementsByTagName("img"), //得到图片们
+	  current=0; //current为当前活跃的图片编号
 
+	  function slideOff() {
+	    imgs[current].className=""; //图片淡出
+	  }
+	  function slideOn() {
+	    imgs[current].className="active"; //图片淡入
+	  }
 
-      var buildRandom='<img src="'+imgarray[randNumber-1]+'" class="img-responsive">';
-      document.getElementById("randomImage").innerHTML=buildRandom;
+	  function changeSlide() { //切换图片的函数
+	    slideOff(); //图片淡出
+	    current++; //自增1
+	    if(current>=3) current=0;
+	    slideOn(); //图片淡入
+	  }
+	  
+	  //每2s调用changeSlide函数进行图片轮播
+	  var slideon=setInterval(changeSlide,2000);  
 
-     
-    // repeat this after a puse of 2000ms (2sec).
-      setTimeout('nextPic()',1500)
+	  imgHolder.onmouseover=function () {
+ 		 clearInterval(slideon); //当鼠标移入时清除轮播事件
+		}
+	  imgHolder.onmouseout=function () {
+  		slideon=setInterval(changeSlide,2000); //当鼠标移出时重新开始轮播事件
+		}
+	}
+    window.onload=function() {
+    	randomImage(); 
+    	imgHolder();
     }
-
-
+	
 
   </script>
 
 </head>
-<body onload="setTimeout('nextPic()',2000)" data-offset="50">
+<body>
 
 <!-- preloader section -->
 <div class="preloader" id="test">
@@ -148,7 +182,9 @@
       </div>
       <a href='people.html'>
         <div id="imgHolder" class="col-md-6">
-          <img border="0" src="images/home-bg-slideshow1.jpg" class="img-responsive">'
+          <img border="0" src="images/home-bg-slideshow1.jpg" class="active img-responsive" />
+          <img border="0" src="images/home-bg-slideshow2.jpg" class="img-responsive" />
+          <img border="0" src="images/about-img.jpg" class="img-responsive" />
         </div>
       </a>
       <div class="col-md-6">
@@ -215,9 +251,15 @@
       </div>
       </div>
       <a href='projects.html'>
-        <div id="randomImage" class="col-sm-12">
-            <img src="images/portfolio-img1.jpg" class="img-responsive">
+      	<div class="col-sm-3"></div>
+        <div id="randomImage" class="col-sm-6">
+            <img src="images/portfolio-img1.jpg" class="active img-responsive"/>
+            <img src="images/portfolio-img2.jpg" class="img-responsive"/>
+            <img src="images/portfolio-img3.jpg" class="img-responsive"/>
+            <img src="images/portfolio-img4.jpg" class="img-responsive"/>
+            <img src="images/portfolio-img5.jpg" class="img-responsive"/>     
         </div>
+        <div class="col-sm-3"></div>
       </a>
 
       <div class="col-sm-12">
@@ -288,3 +330,4 @@
 
 </body>
 </html>
+
